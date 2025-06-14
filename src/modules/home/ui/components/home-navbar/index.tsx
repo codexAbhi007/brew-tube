@@ -2,7 +2,9 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
 import { SearchInput } from "./search-input";
-import { AuthButton } from "@/modules/auth/ui/components/auth-button"
+import { AuthButton } from "@/modules/auth/ui/components/auth-button";
+import { Button } from "@/components/ui/button";
+import { ClapperboardIcon } from "lucide-react";
 
 export const HomeNavbar = () => {
   return (
@@ -21,13 +23,24 @@ export const HomeNavbar = () => {
 
         {/* Search Bar */}
         <div className="flex-1 flex justify-center max-w-[720px] mx-auto">
-          <SearchInput/>
+          <SearchInput />
+        </div>
+        <div className="flex">
+          <Button
+            asChild
+            variant="secondary"
+            className="hover:bg-gray-200 transition-all duration-400 ease-in-out"
+          >
+            <Link href="/studio">
+              <ClapperboardIcon />
+              Studio
+            </Link>
+          </Button>
         </div>
 
-        <div className="flex-shrink-0 items-center flex gap-4">
-         <AuthButton/>
+        <div className="flex-shrink-0 items-center flex gap-4 ">
+          <AuthButton  />
         </div>
-
       </div>
     </nav>
   );

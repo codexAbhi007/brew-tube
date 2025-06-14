@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/table";
 
 import { useRouter } from "next/navigation";
+import { VideoThumbnail } from "@/modules/videos/ui/components/video-thumbnail";
 export const VideosSection = () => {
   return (
     <Suspense fallback={<p>Loading...</p>}>
@@ -60,7 +61,13 @@ const VideosSectionSuspense = () => {
                   key={video.id}
                   className="cursor-pointer "
                 >
-                  <TableCell>{video.title}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-4">
+                      <div className="relative aspect-video w-36 shrink-0">
+                        <VideoThumbnail/>
+                      </div>
+                    </div>
+                  </TableCell>
                   <TableCell>Visibility</TableCell>
                   <TableCell>Status</TableCell>
                   <TableCell>Date</TableCell>

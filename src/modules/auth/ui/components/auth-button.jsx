@@ -9,7 +9,6 @@ export const AuthButton = () => {
   return (
     <>
       <SignedIn>
-        
         <UserButton>
           <UserButton.MenuItems>
             <UserButton.Link
@@ -25,7 +24,7 @@ export const AuthButton = () => {
         <SignInButton mode="modal">
           <Button
             variant="outline"
-            className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-500 border-blue-500/20 rounded-full shadow-none "
+            className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-100 border-blue-500/20 rounded-md shadow-none hover:cursor-pointer hover:bg-blue-900 "
           >
             <UserCircleIcon />
             Sign In
