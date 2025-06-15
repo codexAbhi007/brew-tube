@@ -1,10 +1,39 @@
+import { formatDuration } from "@/lib/utils";
 import Image from "next/image";
 
-export const VideoThumbnail = () => {
+interface VideoThumbnailProps {
+  imageUrl?: string | null;
+  title: string;
+  previewUrl?: string | null;
+  duration: number;
+}
+
+export const VideoThumbnail = ({
+  imageUrl,
+  title,
+  previewUrl,
+  duration,
+}: VideoThumbnailProps) => {
   return (
-    <div className="relative">
+    <div className="relative group">
       <div className="relative w-full overflow-hidden rounded-md aspect-video">
-        <Image src="/placeholder.svg" alt="Thumbnail" fill className="size-full object-cover" />
+        <Image
+          src={imageUrl ?? "/placeholder.svg"}
+          alt={title}
+          fill
+          className="size-full object-cover group-hover:opacity-0"
+        />
+        <Image
+          unoptimized={!!previewUrl}
+          src={previewUrl ?? imageUrl ?? "/placeholder.svg"}
+          alt={title}
+          fill
+          className="size-full object-cover opacity-0 group-hover:opacity-100"
+        />
+      </div>
+
+      <div className="absolute bottom-2 right-2 pc-1 py-0.5 rounded  text-white text-xs font-medium">
+        {formatDuration(duration)}
       </div>
     </div>
   );
