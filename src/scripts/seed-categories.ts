@@ -15,6 +15,17 @@ const categoryNames = [
   "Pets And Animals",
   "Sports",
   "Travel And Events",
+
+  // ✅ Newly added categories
+  "People and Blogs",
+  "Science and Technology",
+  "How-to and Style",
+  "Nonprofits and Activism",
+  "Health and Fitness",
+  "Business and Finance",
+  "Documentary",
+  "History",
+  "Art and Design",
 ];
 
 async function main() {
@@ -25,7 +36,7 @@ async function main() {
       name,
       description: `Videos related to ${name.toLowerCase()}`,
     }));
-    await db.insert(categories).values(values);
+    await db.insert(categories).values(values); 
 
     console.log("Categories Seeded successfully");
   } catch (error) {

@@ -19,14 +19,70 @@ import { VideoThumbnail } from "@/modules/videos/ui/components/video-thumbnail";
 import { snakeCaseToTitle } from "@/lib/utils";
 import { format } from "date-fns";
 import { Globe2Icon, LockIcon } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const VideosSection = () => {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<VideoSectionSkeleton />} >
       <ErrorBoundary fallback={<p>Error!</p>}>
         <VideosSectionSuspense />
       </ErrorBoundary>
     </Suspense>
+  );
+};
+
+const VideoSectionSkeleton = () => {
+  return (
+    <>
+      <div className="border-y">
+        <Table>
+          <TableHeader>
+            <TableRow className="text-md">
+              <TableHead className=" w-[510px]">Video</TableHead>
+              <TableHead>Visibility</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Date</TableHead>
+              <TableHead className="text-right ">Views</TableHead>
+              <TableHead className="text-right ">Comments</TableHead>
+              <TableHead className="text-right pr-6 ">Likes</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <TableRow key={index}>
+                <TableCell className="">
+                  <div className="flex items-center gap-4">
+                    <Skeleton className="h-20 w-36 bg-gray-200" />
+                    <div className="flex flex-col gap-2">
+                      <Skeleton className="h-4 w-[100px] bg-gray-200" />
+                      <Skeleton className="h-3 w-[150px] bg-gray-200" />
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-3 w-16 bg-gray-200" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-3 w-12 bg-gray-200" />
+                </TableCell>
+                <TableCell className="text-left">
+                  <Skeleton className="h-3 w-14 bg-gray-200" />
+                </TableCell>
+                <TableCell className="text-right">
+                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                </TableCell>
+                <TableCell className="text-right">
+                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                </TableCell>
+                <TableCell className="text-right pr-6">
+                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </>
   );
 };
 
@@ -51,9 +107,9 @@ const VideosSectionSuspense = () => {
               <TableHead>Visibility</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead className="">Views</TableHead>
-              <TableHead className="">Comments</TableHead>
-              <TableHead className="pr-6 ">Likes</TableHead>
+              <TableHead className="text-right ">Views</TableHead>
+              <TableHead className="text-right ">Comments</TableHead>
+              <TableHead className="text-right pr-6 ">Likes</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -104,9 +160,9 @@ const VideosSectionSuspense = () => {
                   <TableCell className="text-sm truncate">
                     {format(new Date(video.createdAt), "d MMM yyyy")}
                   </TableCell>
-                  <TableCell>Views</TableCell>
-                  <TableCell>Comments</TableCell>
-                  <TableCell>Likes</TableCell>
+                  <TableCell className="text-right  text-sm">2</TableCell>
+                  <TableCell className="text-right  text-sm">2</TableCell>
+                  <TableCell className="text-right pr-6 text-sm">2</TableCell>
                 </TableRow>
               ))}
           </TableBody>
