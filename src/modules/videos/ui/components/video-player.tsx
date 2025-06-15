@@ -1,6 +1,7 @@
 "use client";
 import { MUX_PLAYER_ACCENT_COLOR } from "@/constants";
 import Muxplayer from "@mux/mux-player-react";
+import { THUMBNAIL_FALLBACK } from "../../constants";
 
 interface VideoPlayerProps {
   playbackId?: string | null | undefined;
@@ -20,7 +21,7 @@ export const VideoPlayer = ({
   return (
     <Muxplayer
       playbackId={playbackId || ""}
-      poster={thumbnailUrl || "/placeholder.svg"}
+      poster={thumbnailUrl || THUMBNAIL_FALLBACK}
       playerInitTime={0}
       autoPlay={autoPlay}
       thumbnailTime={0}
