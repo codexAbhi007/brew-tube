@@ -38,7 +38,7 @@ const VideoSectionSkeleton = () => {
         <Table>
           <TableHeader>
             <TableRow className="text-md">
-              <TableHead className=" w-[510px]">Video</TableHead>
+              <TableHead className="w-[510px]">Video</TableHead>
               <TableHead>Visibility</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Date</TableHead>
@@ -100,7 +100,7 @@ const VideosSectionSuspense = () => {
   return (
     <div>
       <div className="border-y">
-        <Table>
+        <Table className="">
           <TableHeader>
             <TableRow className="text-md">
               <TableHead className=" w-[510px]">Video</TableHead>
@@ -132,10 +132,10 @@ const VideosSectionSuspense = () => {
                         />
                       </div>
                       <div className="flex flex-col overflow-hidden gap-y-1">
-                        <span className="text-sm line-clamp-1">
+                        <span className="text-sm line-clamp-1 whitespace-normal">
                           {video.title}
                         </span>
-                        <span className="text-xs text-muted-foreground line-clamp-1">
+                        <span className="text-xs text-muted-foreground line-clamp-1 whitespace-normal">
                           {video.description || "No description"}
                         </span>
                         <span></span>

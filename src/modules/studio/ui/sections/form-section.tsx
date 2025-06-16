@@ -11,7 +11,7 @@ import {
   LockIcon,
   MoreVerticalIcon,
   RotateCcwIcon,
-  SparklesIcon,
+
   TrashIcon,
 } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -256,10 +256,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                               <ImagePlusIcon className="size-4 mr-1" />
                               Change
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
-                              <SparklesIcon className="size-4 mr-1" />
-                              AI-Generated
-                            </DropdownMenuItem>
+
                             <DropdownMenuItem
                               onClick={() =>
                                 restoreThumbnail.mutate({ id: videoId })
