@@ -30,7 +30,7 @@ export const HomeNavbar = () => {
           <Button
             asChild
             variant="secondary"
-            className="hover:bg-gray-200 transition-all duration-400 ease-in-out"
+            className="hover:bg-gray-200 "
           >
             <Link href="/studio">
               <ClapperboardIcon />

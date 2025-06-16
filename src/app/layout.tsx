@@ -24,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider afterSignOutUrl="/">
-      <html lang="en" className="dark" suppressHydrationWarning>
-        <body className={poppins.className}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <html lang="en" className="dark" suppressHydrationWarning >
+        <body className={`${poppins.className}`} >
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem  >
             <TRPCProvider>
               <Toaster />
               {children}

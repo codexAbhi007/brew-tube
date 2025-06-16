@@ -16,14 +16,14 @@ export function ThemeToggle() {
 
   return (
    <Button
-  variant="ghost"
+  
   size="icon"
   onClick={() => setTheme(isDark ? "light" : "dark")}
   aria-label="Toggle theme"
   className="
     bg-gray-100 dark:bg-gray-800    /* light bg + dark bg */
     text-gray-900 dark:text-gray-100 /* ensure icon is visible */
-    hover:bg-gray-200 dark:hover:bg-gray-700
+    hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer
     transition-all
   "
 >
