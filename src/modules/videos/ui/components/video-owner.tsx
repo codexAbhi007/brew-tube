@@ -28,7 +28,7 @@ export const VideoOwner = ({ user, videoId }: VideoOwnerProps) => {
         </div>
       </Link>
       {clerkUserId === user.clerkId ? (
-        <Button>
+        <Button variant="secondary" className="hover:cursor-pointer">
           <Link href={`/studio/videos/${videoId}`}>Edit Video</Link>
         </Button>
       ) : (
