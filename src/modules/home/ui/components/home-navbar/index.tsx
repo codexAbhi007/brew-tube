@@ -5,6 +5,7 @@ import { SearchInput } from "./search-input";
 import { AuthButton } from "@/modules/auth/ui/components/auth-button";
 import { Button } from "@/components/ui/button";
 import { ClapperboardIcon } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const HomeNavbar = () => {
   return (
@@ -37,6 +38,8 @@ export const HomeNavbar = () => {
             </Link>
           </Button>
         </div>
+
+        <ThemeToggle/>
 
         <div className="flex-shrink-0 items-center flex gap-4 ">
           <AuthButton  />

@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TRPCProvider } from "@/trpc/client";
 import { Toaster } from "@/components/ui/sonner";
-
+import { ThemeProvider } from "next-themes";
 // ✅ Initialize Poppins font
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,12 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider afterSignOutUrl="/">
-      <html lang="en">
+      <html lang="en" className="dark" suppressHydrationWarning>
         <body className={poppins.className}>
-          <TRPCProvider>
-            <Toaster />
-            {children}
-          </TRPCProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <TRPCProvider>
+              <Toaster />
+              {children}
+            </TRPCProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

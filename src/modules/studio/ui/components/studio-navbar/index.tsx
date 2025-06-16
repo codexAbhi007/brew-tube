@@ -8,6 +8,7 @@ import { AuthButton } from "@/modules/auth/ui/components/auth-button";
 import { StudioUploadModal } from "../studio-upload-modal";
 import { Button } from "@/components/ui/button";
 import { HomeIcon } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const StudioNavbar = () => {
   return (
@@ -37,6 +38,7 @@ export const StudioNavbar = () => {
             </Link>
           </Button>
           <StudioUploadModal />
+          <ThemeToggle/>
           <AuthButton />
         </div>
       </div>
