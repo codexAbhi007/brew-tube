@@ -213,7 +213,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                     <FormControl>
                       <Textarea
                         {...field}
-                        rows={100}
+                        rows={10}
                         placeholder="Add a description to your video"
                         value={field.value ?? ""}
                         className="resize-none pr-10 min-h-[180px]"
