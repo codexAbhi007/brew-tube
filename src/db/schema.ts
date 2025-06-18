@@ -15,11 +15,6 @@ import {
   createUpdateSchema,
 } from "drizzle-zod";
 
-
-
-
-
-
 export const users = pgTable(
   "users",
   {
@@ -127,18 +122,20 @@ export const videoRelations = relations(videos, ({ one, many }) => ({
   }),
   views: many(videoViews),
   reactions: many(videoReactions),
+  comments: many(comments),
 }));
 
 export const userRelations = relations(users, ({ many }) => ({
   videos: many(videos),
   videoViews: many(videoViews),
   videoReactions: many(videoReactions),
-  subscriptions: many(subscriptions , {
-    relationName: "subscriptions_viewer_id_fkey"
+  subscriptions: many(subscriptions, {
+    relationName: "subscriptions_viewer_id_fkey",
   }),
   subscribers: many(subscriptions, {
-    relationName: "subscriptions_creator_id_fkey"
+    relationName: "subscriptions_creator_id_fkey",
   }),
+  comments: many(comments),
 }));
 
 export const categoryRelations = relations(users, ({ many }) => ({
@@ -218,11 +215,31 @@ export const videoReactionSelectSchema = createSelectSchema(videoReactions);
 export const videoReactionInsertSchema = createInsertSchema(videoReactions);
 export const videoReactionUpdateSchema = createUpdateSchema(videoReactions);
 
-
-
-
 export const comments = pgTable("comments", {
   id: uuid("id").primaryKey().defaultRandom(),
-  userId: uuid("user_id").references(()=> users.id, {onDelete: "cascade"}).notNull(),
-  videoId: uuid("video_id").references(()=> videos.id, {onDelete: "cascade"}).notNull()
-})
+  userId: uuid("user_id")
+    .references(() => users.id, { onDelete: "cascade" })
+    .notNull(),
+  videoId: uuid("video_id")
+    .references(() => videos.id, { onDelete: "cascade" })
+    .notNull(),
+  value: text("value").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const commentRelations = relations(comments, ({ one }) => ({
+  user: one(users, {
+    fields: [comments.userId],
+    references: [users.id],
+  }),
+  video: one(videos, {
+    fields: [comments.videoId],
+    references: [videos.id],
+  }),
+}));
+
+
+export const commentSelectSchema = createSelectSchema(comments);
+export const commentInsertSchema = createInsertSchema(comments);
+export const commentUpdateSchema = createUpdateSchema(comments);
