@@ -30,22 +30,22 @@ export const VideoMenu = ({ videoId, variant, onRemove }: VideoMenuProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="hover:cursor-pointer">
         <Button variant={variant} size="icon" className="rounded-full">
           <MoreVerticalIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" onClick={(e) => e.stopPropagation()}>
-        <DropdownMenuItem onClick={onShare}>
+      <DropdownMenuContent align="end" onClick={(e) => e.stopPropagation()} >
+        <DropdownMenuItem onClick={onShare} className="hover:cursor-pointer">
           <ShareIcon className="mr-2 size-4" />
           Share
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => {}}>
+        <DropdownMenuItem onClick={() => {}} className="hover:cursor-pointer">
           <ListPlusIcon className="mr-2 size-4" />
           Add to Playlist
         </DropdownMenuItem>
         {onRemove && (
-          <DropdownMenuItem onClick={() => {}}>
+          <DropdownMenuItem onClick={() => {}} className="hover:cursor-pointer">
             <Trash2Icon className="mr-2 size-4" />
             Remove
           </DropdownMenuItem>

@@ -38,7 +38,7 @@ export const VideoDescription = ({
       <div className="flex items-center gap-1 mt-4 text-sm font-medium">
         <Button
           onClick={() => setIsExpanded(c => !c)}
-          className="!p-0 bg-secondary/50 border-none shadow-none hover:cursor-pointer active:scale-95 transition duration-200"
+          className="!p-0 bg-transparent hover:bg-transparent border-none shadow-none hover:cursor-pointer active:scale-95 transition duration-200"
           variant="secondary"
         >
           {isExpanded ? "Show Less" : "Show More"}
