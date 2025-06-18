@@ -11,7 +11,6 @@ import {
   LockIcon,
   MoreVerticalIcon,
   RotateCcwIcon,
-
   TrashIcon,
 } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -303,7 +302,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
             </div>
 
             <div className="flex flex-col gap-y-8 lg:col-span-2">
-              <div className="flex flex-col gap-4 bg-[#efefef] rounded-xl overflow-hidden h-fit">
+              <div className="flex flex-col gap-4 bg-[#f7f7f7]  dark:bg-[#141414]  rounded-xl overflow-hidden h-fit">
                 <div className="aspect-video overflow=hidden relative">
                   <VideoPlayer
                     playbackId={video.muxPlaybackId}

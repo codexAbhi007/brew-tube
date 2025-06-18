@@ -2,12 +2,44 @@ import Link from "next/link";
 import { CommentsGetManyOutput } from "../../types";
 import { UserAvatar } from "@/components/user-avatar";
 import { formatDistanceToNow } from "date-fns";
+import { trpc } from "@/trpc/client";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import {
+  MessageSquareReplyIcon,
+  MoreVerticalIcon,
+  ReplyAllIcon,
+  Trash2Icon,
+} from "lucide-react";
+import { useAuth, useClerk } from "@clerk/nextjs";
+import { toast } from "sonner";
 
 interface CommentItemProps {
-  comment: CommentsGetManyOutput[number];
+  comment: CommentsGetManyOutput["items"][number];
 }
 
 export const CommentItem = ({ comment }: CommentItemProps) => {
+  const utils = trpc.useUtils();
+  const clerk = useClerk();
+  const { userId } = useAuth();
+  const remove = trpc.comments.remove.useMutation({
+    onSuccess: () => {
+      toast.success("Comment Deleted!");
+      utils.comments.getMany.invalidate({ videoId: comment.videoId });
+    },
+    onError: (error) => {
+      toast.error("Something went Wrong!");
+
+      if (error.data?.code === "UNAUTHORIZED") {
+        clerk.openSignIn();
+      }
+    },
+  });
   return (
     <div>
       <div className="flex gap-4">
@@ -24,15 +56,35 @@ export const CommentItem = ({ comment }: CommentItemProps) => {
               <span className="font-medium text-sm pb-0.5">
                 {comment.user.name}
               </span>
-                <span className="text-xs text-muted-foreground">
-                    {formatDistanceToNow(comment.createdAt, {
-                        addSuffix: false
-                    })}
-                </span>
+              <span className="text-xs text-muted-foreground">
+                {formatDistanceToNow(comment.createdAt, {
+                  addSuffix: false,
+                })}
+              </span>
             </div>
           </Link>
           <p className="text-sm">{comment.value}</p>
+          {/* TODO : Reactiosn */}
         </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="size-8 hover:cursor-pointer">
+              <MoreVerticalIcon />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => {}} className="hover:cursor-pointer">
+              <ReplyAllIcon className="size-4" />
+              Reply
+            </DropdownMenuItem>
+            {comment.user.clerkId === userId && (
+              <DropdownMenuItem onClick={()=>remove.mutate({ id: comment.id })} className="hover:cursor-pointer">
+                <Trash2Icon className="size-4" />
+                Delete
+              </DropdownMenuItem>
+            )}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );
