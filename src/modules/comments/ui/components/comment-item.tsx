@@ -151,6 +151,7 @@ export const CommentItem = ({
             )}
           </div>
         </div>
+        {/* May update later */}
         {(comment.user.clerkId === userId || (comment.user.clerkId !== userId && (variant === "comment"))) && 
          <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>

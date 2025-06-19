@@ -50,10 +50,11 @@ export async function POST(req: Request) {
   console.log(`Webhook Payload: `, body);
   if (eventType == "user.created") {
     const { data } = evt;
-
+    console.log("Hello")
+    console.log(data)
     await db.insert(users).values({
       clerkId: data.id,
-      name: `${data.first_name} ${data.last_name}`,
+      name: `${data.first_name} ${data.last_name === null ? "" : data.last_name}`,
       imageUrl: data.image_url,
     });
   }
@@ -73,7 +74,7 @@ export async function POST(req: Request) {
     await db
       .update(users)
       .set({
-        name: `${data.first_name} ${data.last_name}`,
+        name: `${data.first_name} ${data.last_name === null ? "" : data.last_name}`,
         imageUrl: data.image_url,
       })
       .where(eq(users.clerkId, data.id));
