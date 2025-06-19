@@ -10,12 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import {
-  MessageSquareReplyIcon,
-  MoreVerticalIcon,
-  ReplyAllIcon,
-  Trash2Icon,
-} from "lucide-react";
+import { MoreVerticalIcon, ReplyAllIcon, Trash2Icon } from "lucide-react";
 import { useAuth, useClerk } from "@clerk/nextjs";
 import { toast } from "sonner";
 
@@ -68,17 +63,27 @@ export const CommentItem = ({ comment }: CommentItemProps) => {
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="size-8 hover:cursor-pointer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-8 hover:cursor-pointer"
+            >
               <MoreVerticalIcon />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => {}} className="hover:cursor-pointer">
+            <DropdownMenuItem
+              onClick={() => {}}
+              className="hover:cursor-pointer"
+            >
               <ReplyAllIcon className="size-4" />
               Reply
             </DropdownMenuItem>
             {comment.user.clerkId === userId && (
-              <DropdownMenuItem onClick={()=>remove.mutate({ id: comment.id })} className="hover:cursor-pointer">
+              <DropdownMenuItem
+                onClick={() => remove.mutate({ id: comment.id })}
+                className="hover:cursor-pointer"
+              >
                 <Trash2Icon className="size-4" />
                 Delete
               </DropdownMenuItem>
