@@ -1,2 +1,2 @@
 export const DEFAULT_LIMIT = 5
-export const MUX_PLAYER_ACCENT_COLOR="#4B3832"
+export const MUX_PLAYER_ACCENT_COLOR="#da711e"
