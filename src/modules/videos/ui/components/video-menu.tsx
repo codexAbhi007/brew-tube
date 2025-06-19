@@ -29,7 +29,7 @@ export const VideoMenu = ({ videoId, variant, onRemove }: VideoMenuProps) => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild className="hover:cursor-pointer">
         <Button variant={variant} size="icon" className="rounded-full">
           <MoreVerticalIcon />

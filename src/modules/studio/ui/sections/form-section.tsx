@@ -144,8 +144,8 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
         onOpenChange={setThumbnailModalOpen}
         videoId={videoId}
       />
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+      <Form {...form} >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-2xl font-bold">Video Details</h1>
@@ -161,7 +161,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
               >
                 Save
               </Button>
-              <DropdownMenu>
+              <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon">
                     <MoreVerticalIcon />
@@ -237,7 +237,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                           src={video.thumbnailUrl || THUMBNAIL_FALLBACK}
                           className="object-cover"
                         />
-                        <DropdownMenu>
+                        <DropdownMenu modal={false}>
                           <DropdownMenuTrigger asChild>
                             <Button
                               type="button"

@@ -49,7 +49,7 @@ export const FilterCarousel = ({
       {/* Left fade */}
       <div
         className={cn(
-          "absolute left-12 top-0 bottom-0 w-12 z-10 bg-gradient-to-r from-white to-trasnparent pointer-events-none",
+          "absolute left-12 top-0 bottom-0 w-12 z-10 bg-gradient-to-r from-white dark:from-black/75 to-trasnparent pointer-events-none",
           current === 1 && "hidden"
         )}
       />
@@ -77,7 +77,7 @@ export const FilterCarousel = ({
           {isLoading &&
             Array.from({ length: 14 }).map((_, index) => (
               <CarouselItem key={index} className="pl-3 basis-auto">
-                <Skeleton className="rounded-lg px-3 py-1 h-full text-sm w-[100px] font-semibold bg-gray-200">
+                <Skeleton className="rounded-lg px-3 py-1 h-full text-sm w-[100px] font-semibold ">
                   &nbsp;
                 </Skeleton>
               </CarouselItem>
@@ -105,7 +105,7 @@ export const FilterCarousel = ({
 
       <div
         className={cn(
-          "absolute right-12 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-white to-trasnparent pointer-events-none",
+          "absolute right-12 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-white dark:from-black/75 to-trasnparent pointer-events-none",
           current === count && "hidden"
         )}
       />
