@@ -23,7 +23,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const VideosSection = () => {
   return (
-    <Suspense fallback={<VideoSectionSkeleton />} >
+    <Suspense fallback={<VideoSectionSkeleton />}>
       <ErrorBoundary fallback={<p>Error!</p>}>
         <VideosSectionSuspense />
       </ErrorBoundary>
@@ -44,7 +44,9 @@ const VideoSectionSkeleton = () => {
               <TableHead>Date</TableHead>
               <TableHead className="text-right ">Views</TableHead>
               <TableHead className="text-right ">Comments</TableHead>
-              <TableHead className="text-right pr-6 ">Likes</TableHead>
+              <TableHead className="text-right pr-6 ">
+                Likes vs Dislikes
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -52,7 +54,7 @@ const VideoSectionSkeleton = () => {
               <TableRow key={index}>
                 <TableCell className="">
                   <div className="flex items-center gap-4">
-                    <Skeleton className="h-20 w-36 bg-gray-200" />
+                    <Skeleton className="h-20 w-52 bg-gray-200" />
                     <div className="flex flex-col gap-2">
                       <Skeleton className="h-4 w-[100px] bg-gray-200" />
                       <Skeleton className="h-3 w-[150px] bg-gray-200" />
@@ -101,15 +103,17 @@ const VideosSectionSuspense = () => {
     <div>
       <div className="border-y">
         <Table className="">
-          <TableHeader>
-            <TableRow className="text-md">
-              <TableHead className=" w-[510px]">Video</TableHead>
-              <TableHead>Visibility</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead className="text-right ">Views</TableHead>
-              <TableHead className="text-right ">Comments</TableHead>
-              <TableHead className="text-right pr-6 ">Likes</TableHead>
+          <TableHeader className="text-sm">
+            <TableRow>
+              <TableHead className=" w-[510px] text-sm ">Video</TableHead>
+              <TableHead className="text-sm">Visibility</TableHead>
+              <TableHead className="text-sm">Status</TableHead>
+              <TableHead className="text-sm">Date</TableHead>
+              <TableHead className="text-right text-sm ">Views</TableHead>
+              <TableHead className="text-right text-sm ">Comments</TableHead>
+              <TableHead className="text-right text-sm pr-6 ">
+                Likes vs Dislikes
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -160,9 +164,23 @@ const VideosSectionSuspense = () => {
                   <TableCell className="text-sm truncate">
                     {format(new Date(video.createdAt), "d MMM yyyy")}
                   </TableCell>
-                  <TableCell className="text-right  text-sm">2</TableCell>
-                  <TableCell className="text-right  text-sm">2</TableCell>
-                  <TableCell className="text-right pr-6 text-sm">2</TableCell>
+                  <TableCell className="text-right  text-sm">
+                    {video.viewCount}
+                  </TableCell>
+                  {/* TODO: No of COmments */}
+                  <TableCell className="text-right  text-sm">:(</TableCell>
+                  <TableCell className="text-right pr-6 text-sm">
+                    <div className="flex flex-col">
+                      <p>
+                        {video.likeCount}
+                        {video.likeCount > 1 ? " likes" : " like"}{" "}
+                      </p>
+                      <p>
+                        {video.dislikeCount}
+                        {video.dislikeCount > 1 ? " dislikes" : " dislike"}
+                      </p>
+                    </div>
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
@@ -177,5 +195,3 @@ const VideosSectionSuspense = () => {
     </div>
   );
 };
-
-//IsManual
