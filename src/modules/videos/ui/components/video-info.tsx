@@ -33,7 +33,10 @@ export const VideoInfo = ({ data, onRemove }: VideoInfoProps) => {
   }, [data.viewCount]);
 
   const compactDate = useMemo(() => {
-    return formatDistanceToNow(data.createdAt, { addSuffix: false });
+    const raw = formatDistanceToNow(new Date(data.createdAt), {
+      addSuffix: true,
+    });
+    return raw.replace(/^about\s+/, "");
   }, [data.createdAt]);
 
   return (
