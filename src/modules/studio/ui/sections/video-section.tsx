@@ -50,34 +50,34 @@ const VideoSectionSkeleton = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 8 }).map((_, index) => (
               <TableRow key={index}>
                 <TableCell className="">
                   <div className="flex items-center gap-4">
-                    <Skeleton className="h-20 w-52 bg-gray-200" />
+                    <Skeleton className="h-20 w-52 " />
                     <div className="flex flex-col gap-2">
-                      <Skeleton className="h-4 w-[100px] bg-gray-200" />
-                      <Skeleton className="h-3 w-[150px] bg-gray-200" />
+                      <Skeleton className="h-4 w-[100px] " />
+                      <Skeleton className="h-3 w-[150px] " />
                     </div>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="h-3 w-16 bg-gray-200" />
+                  <Skeleton className="h-3 w-16 " />
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="h-3 w-12 bg-gray-200" />
+                  <Skeleton className="h-3 w-12 " />
                 </TableCell>
                 <TableCell className="text-left">
-                  <Skeleton className="h-3 w-14 bg-gray-200" />
+                  <Skeleton className="h-3 w-14 " />
                 </TableCell>
                 <TableCell className="text-right">
-                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                  <Skeleton className="h-3 w-10  text-right ml-auto" />
                 </TableCell>
                 <TableCell className="text-right">
-                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                  <Skeleton className="h-3 w-10  text-right ml-auto" />
                 </TableCell>
                 <TableCell className="text-right pr-6">
-                  <Skeleton className="h-3 w-10 bg-gray-200 text-right ml-auto" />
+                  <Skeleton className="h-3 w-10  text-right ml-auto" />
                 </TableCell>
               </TableRow>
             ))}
