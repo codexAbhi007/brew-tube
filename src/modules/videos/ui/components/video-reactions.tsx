@@ -21,6 +21,7 @@ export const VideoReactions = ({videoId,likes,dislikes,viewerReaction}:VideoReac
   const like = trpc.videoReactions.like.useMutation({
     onSuccess: () => {
       utils.videos.getOne.invalidate({id: videoId})
+      utils.playlists.getLiked.invalidate()
     },
     onError: (error)=> {
       toast.error("Something went Wrong")
@@ -33,6 +34,7 @@ export const VideoReactions = ({videoId,likes,dislikes,viewerReaction}:VideoReac
   const dislike = trpc.videoReactions.dislike.useMutation({
      onSuccess: () => {
       utils.videos.getOne.invalidate({id: videoId})
+      utils.playlists.getLiked.invalidate()
     },
     onError: (error)=> {
       toast.error("Something went Wrong")

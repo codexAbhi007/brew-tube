@@ -17,10 +17,10 @@ export const StudioSidebarHeader = () => {
   if (!user) {
     return (
       <SidebarHeader className="flex items-center justify-center pb-4">
-        <Skeleton className="size-[112px] rounded-full bg-gray-200" />
+        <Skeleton className="size-[112px] rounded-full b" />
         <div className="flex flex-col items-center mt-2 gap-y-1">
-          <Skeleton className="h-4 w-[80px] bg-gray-200" />
-          <Skeleton className="h-4 w-[100px] bg-gray-200" />
+          <Skeleton className="h-4 w-[80px] b" />
+          <Skeleton className="h-4 w-[100px] b" />
         </div>
       </SidebarHeader>
     );

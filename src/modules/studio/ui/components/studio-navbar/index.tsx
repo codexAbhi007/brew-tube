@@ -19,9 +19,9 @@ export const StudioNavbar = () => {
           <SidebarTrigger />
           <Link href="/studio">
             <div className="p-4 flex items-center gap-1">
-              <Image src="/logo.svg" alt="logo" width={32} height={32} />
+              <Image src="/logo.png" alt="logo" width={40} height={40} />
               <p className="text-lg font-semibold tracking-tight">
-                New Tube Studio
+                Brew Studio
               </p>
             </div>
           </Link>

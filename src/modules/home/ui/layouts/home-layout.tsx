@@ -2,6 +2,9 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { HomeNavbar } from "../components/home-navbar";
 import { HomeSidebar } from "../components/home-sidebar";
 
+
+import {Footer} from "../components/mobile-footer";
+
 interface HomeLayoutProps {
   children: React.ReactNode;
 }
@@ -15,7 +18,8 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
           <HomeSidebar />
           <main className="flex-1 overflow-y-auto">{children}</main>
         </div>
-        
+
+        <Footer />
       </div>
     </SidebarProvider>
   );

@@ -18,7 +18,7 @@ import { StudioSidebarHeader } from "./studio-sidebar-header";
 export const StudioSidebar = () => {
 
   const pathname = usePathname()
-
+  console.log("pathname: ", pathname)
   return (
     <Sidebar className="pt-16 z-40" collapsible="icon">
       <SidebarContent className="bg-background">
@@ -28,8 +28,8 @@ export const StudioSidebar = () => {
           <SidebarMenu>
             <StudioSidebarHeader/>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Exit Studio" asChild isActive={pathname === "/studio"}>
-                <Link href="/studio">
+              <SidebarMenuButton tooltip="Exit Studio" asChild isActive={pathname === "/studio"} className="active:text-amber-400">
+                <Link href="/studio" >
                   <VideoIcon className="size-5" />
                   <span className="text-sm">Content</span>
                 </Link>

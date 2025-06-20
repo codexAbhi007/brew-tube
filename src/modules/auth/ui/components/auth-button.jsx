@@ -3,8 +3,6 @@
 import { ClapperboardIcon, UserCircleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserButton, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
-import Link from "next/link";
-import { ThemeToggle } from "@/components/ThemeToggle";
 export const AuthButton = () => {
   //TODO: Add different auth states
   return (
@@ -17,7 +15,6 @@ export const AuthButton = () => {
               href="/studio"
               labelIcon={<ClapperboardIcon className="size-4" />}
             />
-            
           </UserButton.MenuItems>
         </UserButton>
         {/* Add Menu Items for studio and user profile */}
