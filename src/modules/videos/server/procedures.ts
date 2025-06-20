@@ -120,6 +120,12 @@ export const videosRouter = createTRPCRouter({
       if (!asset) throw new TRPCError({ code: "BAD_REQUEST" });
       const playbackId = asset.playback_ids?.[0].id;
       const duration = asset.duration ? Math.round(asset.duration * 1000) : 0;
+
+      // await db.update(videos).set({
+      //   muxAssetId: null,
+      //   muxPlaybackId: null,
+      // });
+
       const [updatedVideo] = await db
         .update(videos)
         .set({
