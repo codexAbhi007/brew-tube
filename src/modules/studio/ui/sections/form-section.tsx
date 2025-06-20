@@ -51,6 +51,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { THUMBNAIL_FALLBACK } from "@/modules/videos/constants";
 import { ThumbnailUploadModal } from "../components/thumbnail-upload-moda";
+import { APP_URL } from "@/constants";
 
 interface FormSectionProps {
   videoId: string;
@@ -103,10 +104,8 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
   const revalidate = trpc.videos.revalidate.useMutation({
     onSuccess: () => {
       utils.studio.getMany.invalidate();
-      utils.studio.getOne.invalidate({id: videoId})
+      utils.studio.getOne.invalidate({ id: videoId });
       toast.success("Video Revalidated!");
-     
-      
     },
     onError: () => {
       toast.error("Something went wrong");
@@ -134,9 +133,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
     update.mutate(data);
   };
 
-  const fullUrl = `${
-    process.env.VERCEL_URL || "http://localhost:3000"
-  }/videos/${videoId}`;
+  const fullUrl = `${APP_URL || "http://localhost:3000"}/videos/${videoId}`;
   const [isCopied, setIsCopied] = useState(false);
 
   const onCopy = async () => {
@@ -156,7 +153,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
         onOpenChange={setThumbnailModalOpen}
         videoId={videoId}
       />
-      <Form {...form} >
+      <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>

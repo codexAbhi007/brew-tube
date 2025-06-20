@@ -8,6 +8,7 @@ import { subscriptionsRouter } from "@/modules/subscriptions/server/procedure";
 import { commentsRouter } from "@/modules/comments/server/procedures";
 import { commentReactionsRouter } from "@/modules/comment-reactions/server/procedures";
 import { suggestionsRouter } from "@/modules/suggestions/server/procedures";
+import { searchRouter } from "@/modules/search/server/procedures";
 export const appRouter = createTRPCRouter({
   categories: categoriesRouter,
   studio: studioRouter,
@@ -17,7 +18,8 @@ export const appRouter = createTRPCRouter({
   subscriptions: subscriptionsRouter,
   comments: commentsRouter,
   commentReactions: commentReactionsRouter,
-  suggestions: suggestionsRouter
+  suggestions: suggestionsRouter,
+  search: searchRouter
 });
 
 export type AppRouter = typeof appRouter;
