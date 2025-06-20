@@ -1,5 +1,5 @@
 "use client";
-import { HistoryIcon, ListVideoIcon, ThumbsUpIcon } from "lucide-react";
+import { ClapperboardIcon, HistoryIcon, ListVideoIcon, ThumbsUpIcon } from "lucide-react";
 import { useAuth, useClerk } from "@clerk/nextjs";
 import {
   SidebarGroup,
@@ -28,6 +28,11 @@ const items = [
     title: "All Playlists",
     url: "/playlists",
     icon: ListVideoIcon,
+  },
+  {
+    title: "Brew Studio",
+    url: "/studio",
+    icon: ClapperboardIcon,
   },
 ];
 
