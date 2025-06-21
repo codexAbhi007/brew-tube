@@ -59,7 +59,7 @@ export const PersonalSection = () => {
                 }} //TODO DO something
               >
                 <Link href={item.url} className="flex items-center gap-4">
-                  <item.icon />
+                  <item.icon className="size-5" />
                   <span className="text-sm">{item.title}</span>
                 </Link>
               </SidebarMenuButton>

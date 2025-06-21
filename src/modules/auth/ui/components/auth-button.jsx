@@ -23,10 +23,10 @@ export const AuthButton = () => {
         <SignInButton mode="modal">
           <Button
             variant="outline"
-            className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-100 border-blue-500/20 rounded-md shadow-none hover:cursor-pointer hover:bg-blue-900 "
+            className="px-4 py-2 text-sm font-medium text-blue-500 hover:text-blue-100 border-blue-500/20 rounded-md shadow-none hover:cursor-pointer hover:bg-blue-900 "
           >
             <UserCircleIcon />
-            Sign In
+            <p className="hidden md:block">Sign In</p>
           </Button>
         </SignInButton>
       </SignedOut>

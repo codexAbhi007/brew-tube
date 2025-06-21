@@ -98,7 +98,7 @@ export const VideoRowCard = ({ data, size="default", onRemove }: videoRowCardPro
       <Link href={`/videos/${data.id}`} className={thumbnailVariants({ size })}>
         <VideoThumbnail
           imageUrl={data.thumbnailUrl}
-          previewUrl={data.thumbnailUrl}
+          previewUrl={data.previewUrl}
           title={data.title}
           duration={data.duration}
         />

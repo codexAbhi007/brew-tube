@@ -32,7 +32,7 @@ export const HomeNavbar = () => {
           <div className="flex gap-4">
             <Button asChild variant="secondary" className="">
               <Link href="/studio">
-                <ClapperboardIcon />
+                <ClapperboardIcon  />
                 <p className="hidden sm:block">Studio</p>
               </Link>
             </Button>

@@ -36,13 +36,13 @@ export const PlaylistThumbnail = ({
         {/* Back layer (faintest) */}
         <div
           className="absolute -top-3 left-1/2 -translate-x-1/2 w-[97%] overflow-hidden rounded-xl 
-      bg-black/20 dark:bg-neutral-400 aspect-video"
+      bg-black/20 dark:bg-neutral-600/30 aspect-video"
         />
 
         {/* Middle layer */}
         <div
           className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-[98.5%] overflow-hidden rounded-xl 
-      bg-black/25 dark:bg-neutral-600 aspect-video"
+      bg-black/25 dark:bg-neutral-700/45 aspect-video"
         />
 
         {/* Main image layer */}

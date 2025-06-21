@@ -319,7 +319,7 @@ export const playlistVideos = pgTable(
   "playlist_videos",
   {
     playlistId: uuid("playlist_id")
-      .references(() => videos.id, { onDelete: "cascade" })
+      .references(() => playlists.id, { onDelete: "cascade" })
       .notNull(),
     videoId: uuid("video_id")
       .references(() => videos.id, { onDelete: "cascade" })
