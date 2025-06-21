@@ -4,7 +4,8 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { UserPageBanner, UserPageBannerSkeleton } from "../components/user-page-banner";
 import { UserPageInfo, UserPageInfoSkeleton } from "../components/user-page-info";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "@/components/ui/separator";
+
 
 interface UserSectionProps {
     userId: string;
