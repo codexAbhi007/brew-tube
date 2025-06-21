@@ -168,7 +168,7 @@ const VideosSectionSuspense = () => {
                     {video.viewCount}
                   </TableCell>
                   {/* TODO: No of COmments */}
-                  <TableCell className="text-right  text-sm">:(</TableCell>
+                  <TableCell className="text-right  text-sm">{video.commentCount}</TableCell>
                   <TableCell className="text-right pr-6 text-sm">
                     <div className="flex flex-col">
                       <p>

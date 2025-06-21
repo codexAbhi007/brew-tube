@@ -39,6 +39,7 @@ export const PlaylistCreateModal = ({
       onOpenChange(false);
       toast.success("Playlist created");
       utils.playlists.getMany.invalidate()
+      utils.playlists.getManyForVideo.invalidate()
     },
     onError: () => {
       toast.error("Something went wrong");
@@ -65,7 +66,7 @@ export const PlaylistCreateModal = ({
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Prompt</FormLabel>
+                <FormLabel>Enter Playlist name</FormLabel>
                 <FormControl>
                   <Input
                     {...field}

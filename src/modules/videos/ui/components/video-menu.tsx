@@ -61,7 +61,7 @@ export const VideoMenu = ({
           </DropdownMenuItem>
           {onRemove && (
             <DropdownMenuItem
-              onClick={() => {}}
+              onClick={onRemove}
               className="hover:cursor-pointer"
             >
               <Trash2Icon className="mr-2 size-4" />
