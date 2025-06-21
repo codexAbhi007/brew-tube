@@ -7,6 +7,7 @@ import CoffeeSteamPlateIcon from "./coffe-steam";
 import CoffeePlateIcon from "./coffe-without-steam";
 
 export function ThemeToggle() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
