@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button, ButtonProps } from "@/components/ui/button";
+import { BellRingIcon, UserMinus } from "lucide-react";
 
 interface SubscriptionButtonProps {
   onClick: ButtonProps["onClick"];
@@ -24,7 +25,17 @@ export const SubscriptionButton = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {isSubscribed ? "Unsubscribe" : "Subscribe"}
+      {isSubscribed ? (
+        <div className="flex items-center justify-center gap-x-2">
+          <p>Unsubscribe</p>
+          <UserMinus className="size-5" />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center gap-x-2">
+          <p>Subscribe</p>
+          <BellRingIcon className="size-5" />
+        </div>
+      )}
     </Button>
   );
 };

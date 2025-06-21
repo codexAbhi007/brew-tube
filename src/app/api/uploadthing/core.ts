@@ -9,6 +9,47 @@ import { z } from "zod";
 const f = createUploadthing();
 
 export const ourFileRouter = {
+  bannerUploader: f({
+    image: {
+      maxFileSize: "4MB",
+      maxFileCount: 1,
+    },
+  })
+    .middleware(async () => {
+      const { userId: clerkUserId } = await auth();
+
+      if (!clerkUserId) throw new UploadThingError("Unauthorized");
+
+      const [existingUser] = await db
+        .select()
+        .from(users)
+        .where(eq(users.clerkId, clerkUserId));
+
+      if (!existingUser) throw new UploadThingError("User not Found!");
+
+      if (existingUser.bannerKey) {
+        const utapi = new UTApi();
+
+        await utapi.deleteFiles(existingUser.bannerKey);
+        await db
+          .update(users)
+          .set({ bannerKey: null, bannerUrl: null })
+          .where(and(eq(users.id, existingUser.id)));
+      }
+
+      return { userId: existingUser.id };
+    })
+    .onUploadComplete(async ({ metadata, file }) => {
+      await db
+        .update(users)
+        .set({
+          bannerUrl: file.ufsUrl,
+          bannerKey: file.key,
+        })
+        .where(eq(users.id, metadata.userId));
+
+      return { uploadedBy: metadata.userId};
+    }),
   thumbnailUploader: f({
     image: {
       maxFileSize: "4MB",
@@ -53,10 +94,6 @@ export const ourFileRouter = {
       return { user, ...input };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      // console.log("Upload complete for userId:", metadata.userId);
-
-      // console.log("file url", file.ufsUrl);
-
       await db
         .update(videos)
         .set({

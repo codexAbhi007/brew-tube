@@ -50,7 +50,7 @@ import { snakeCaseToTitle } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { THUMBNAIL_FALLBACK } from "@/modules/videos/constants";
-import { ThumbnailUploadModal } from "../components/thumbnail-upload-moda";
+import { ThumbnailUploadModal } from "../components/thumbnail-upload-modal";
 import { APP_URL } from "@/constants";
 
 interface FormSectionProps {

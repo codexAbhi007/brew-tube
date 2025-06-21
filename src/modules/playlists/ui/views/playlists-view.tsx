@@ -20,10 +20,10 @@ export const PlaylistsView = () => {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full"
+          className="flex items-center justify-center w-auto px-4 rounded-full"
           onClick={() => setCreateModalOpen(true)}
         >
-            <PlusIcon/>
+           <p className="hidden md:block">Create</p><PlusIcon/>
         </Button>
       </div>
       <PlaylistsSection />

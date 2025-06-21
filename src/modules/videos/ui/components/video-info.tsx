@@ -46,15 +46,15 @@ export const VideoInfo = ({ data, onRemove }: VideoInfoProps) => {
       </Link>
       <div className="min-w-0 flex-1">
         <Link href={`/videos/${data.id}`}>
-          <h3 className="font-medium line-clamp-1 lg:line-clamp-2 text-base break-words">
+          <h3 className="font-sm line-clamp-1 lg:line-clamp-2 text-base break-words">
             {data.title}
           </h3>
         </Link>
         <Link href={`/users/${data.user.id}`}>
-          <UserInfo name={data.user.name} />
+          <UserInfo name={data.user.name} className="mt-1"/>
         </Link>
         <Link href={`/videos/${data.id}`}>
-          <p className="text-sm text-gray-600 line-clamp-1">
+          <p className="text-sm dark:text-gray-400 text-gray-600 line-clamp-1">
             {compactViews} views • {compactDate}
           </p>
         </Link>
