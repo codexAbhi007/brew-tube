@@ -1,3 +1,4 @@
+
 import { InfiniteScroll } from "@/components/infinite-scroll";
 import { ResponsiveModal } from "@/components/responsive-modal";
 import { Button } from "@/components/ui/button";
@@ -104,7 +105,7 @@ export const PlaylistAddModal = ({
                 ) : (
                   <SquareIcon className="mr-2 size-5" />
                 )}
-                <p className="text-sm text-amber-400 font-normal">{playlist.name}</p>
+                <p className="text-sm text-amber-950 dark:text-amber-400 font-normal">{playlist.name}</p>
               </Button>
             ))}
         {!isLoading && (

@@ -18,7 +18,7 @@ export const StudioNavbar = () => {
         <div className="flex items-center flex-shrink-0">
           <SidebarTrigger />
           <Link href="/studio">
-            <div className="p-4 flex items-center gap-1">
+            <div className="p-4 flex items-center ">
               <Image src="/logo.png" alt="logo" width={40} height={40} />
               <p className="text-xl font-semibold tracking-tight">
                 Brew Studio

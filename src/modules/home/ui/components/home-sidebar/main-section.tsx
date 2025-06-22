@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 const items = [
   {
     title: "Home",
@@ -32,7 +33,7 @@ const items = [
 export const MainSection = () => {
   const clerk = useClerk();
   const { isSignedIn } = useAuth();
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <SidebarGroup>
@@ -43,15 +44,23 @@ export const MainSection = () => {
               <SidebarMenuButton
                 tooltip={item.title}
                 asChild
-                isActive={pathname === item.url} 
+                isActive={pathname === item.url}
                 onClick={(e) => {
                   if (!isSignedIn && item.auth) {
                     e.preventDefault();
                     return clerk.openSignIn();
                   }
-                }} //TODO DO something
+                }} 
               >
-                <Link href={item.url} className="flex items-center gap-4">
+                <Link
+                  href={item.url}
+                  className={cn(
+                    "flex items-center gap-4",
+                    pathname === item.url
+                      ? "!text-amber-950 dark:!text-amber-400"
+                      : "text-muted-foreground"
+                  )}
+                >
                   <item.icon />
                   <span className="text-sm">{item.title}</span>
                 </Link>

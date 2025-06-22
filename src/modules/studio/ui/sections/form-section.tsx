@@ -8,6 +8,7 @@ import {
   CopyIcon,
   Globe2Icon,
   ImagePlusIcon,
+  Loader2Icon,
   LockIcon,
   MoreVerticalIcon,
   RotateCcwIcon,
@@ -68,7 +69,9 @@ export const FormSection = ({ videoId }: FormSectionProps) => {
 };
 
 const FormSectionSkeleton = () => {
-  return <p>Loading...</p>;
+  return(
+    <Loader2Icon className="size-5 animate-spin text-muted-foreground"/>
+  );
 };
 
 const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
