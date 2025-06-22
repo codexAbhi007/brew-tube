@@ -43,13 +43,13 @@ export const PersonalSection = () => {
               <SidebarMenuButton
                 tooltip={item.title}
                 asChild
-                isActive={false} //TODO: change to look at current pathname
+                isActive={false}
                 onClick={(e) => {
                   if (!isSignedIn && item.auth) {
                     e.preventDefault();
                     return clerk.openSignIn();
                   }
-                }} //TODO DO something
+                }} 
               >
                 <Link href={item.url} className="flex items-center gap-4">
                   <item.icon />

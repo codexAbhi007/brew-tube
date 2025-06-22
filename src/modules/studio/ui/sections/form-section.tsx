@@ -380,14 +380,16 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                   </div>
                 </div>
               </div>
-
+              
               <FormField
                 control={form.control}
                 name="visibility"
+                
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Visibility</FormLabel>
                     <Select
+                      
                       onValueChange={field.onChange}
                       defaultValue={field.value ?? undefined}
                     >
@@ -416,6 +418,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                 )}
               />
             </div>
+            <div className="mb-10 md:hidden"/>
           </div>
         </form>
       </Form>
